@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: red;
+}
+
+
+.pin-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 500px;
+}
+
+.pin-container .pin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin-bottom: 40px;
+}
+
+.pin-container .pin .pin-item {
+    margin: 0 10px;
+}
+
+
+  
+  button {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 40px;
+    margin: 5px;
+  }
+  
+  button:hover {
+    background-color: #341c09;
+    color: rgb(59, 241, 83);
+  }
+  
+  button:disabled {
+    background-color: #6380a1;
+    color: rgb(255, 255, 255);
+  }
