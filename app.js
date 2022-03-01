@@ -1,39 +1,42 @@
 let table = document.getElementById("table");
 let pinItem = document.getElementsByClassName("pin-item");
-let pinArray = Array.from(pinItem);
+let pinArrays = Array.from(pinItem);
 let result = document.getElementById("result");
 
 let i = 0;
 let correctPin = "123456";
 let emptyStr = "";
+let pinArray = [];
 
 table.onclick = (e) => {
   let values = e.target.value;
+  pinArray.push(values);
 
   if (e.target.className === "numbers") {
-    result.innerText = ""
+    result.innerText = "";
 
-    if (i <= pinArray.length) {
-      pinArray[i].innerText = `${values}`;
-      console.log(pinArray.map((e) => e.innerText));
-      console.log(pinArray.map((e) => e.innerText).join(""));
-
-      if (pinArray.map((e) => e.innerText).join("") === correctPin) {
+    if (i <= 6) {
+      pinArrays[i].style.backgroundColor = "blue";
+      i = i + 1;
+      if (pinArray.map((e) => e).join("") === correctPin) {
         result.innerText = "Your PIN was correct!";
         console.log("Gotcha");
+        pinArrays.map((e) => (e.style.backgroundColor = "white"));
+        pinArray = []
+        i = 0;
       }
-
-      i = i + 1;
     }
 
-    if (i === pinArray.length) {
-      if (pinArray.map((e) => e.innerText).join("") !== correctPin) {
+    if (i >= 6) {
+      if (pinArray.map((e) => e).join("") !== correctPin) {
         result.innerText = "Your PIN was incorrect!";
+        pinArrays.map((e) => (e.style.backgroundColor = "white"));
+        pinArray = []
+        i = 0;
       }
-
-      pinArray.map((e) => (e.innerText = "0"));
-      i = 0;
+     
     }
+    
   }
 };
 
